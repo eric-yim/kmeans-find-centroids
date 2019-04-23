@@ -1,5 +1,5 @@
 # kmeans-find-centroids
-# K means clustering is a method to categorize samples: https://en.wikipedia.org/wiki/K-means_clustering
+K means clustering is a method to categorize samples: https://en.wikipedia.org/wiki/K-means_clustering
 # This repository contains files to visualize Cost vs Number of Clusters chosen (to help user select appropriate n_clusters).
 # When user has chosen desired n_clusters, centroid values can be written to csv file.
 #
