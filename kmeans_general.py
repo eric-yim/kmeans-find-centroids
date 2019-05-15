@@ -12,7 +12,7 @@ def k_means_1_iteration(sample_values, centroid_values,n_clusters):
     updated_centroids = update_centroids(samples, nearest_indices, n_clusters)
     nearest_indices,j_cost = assign_to_nearest(samples, updated_centroids)
     j_cost = tf.reduce_sum(j_cost)
-    with tf.Session() as session:
+    with tf.compat.v1.Session() as session:
         j_cost_value, updated_centroid_values = session.run((j_cost,updated_centroids))
     return j_cost_value, updated_centroid_values
 
