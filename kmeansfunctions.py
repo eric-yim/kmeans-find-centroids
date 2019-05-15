@@ -5,7 +5,7 @@ import numpy as np
 def choose_random_centroids(samples, n_clusters):
     # Step 0: Initialisation: Select `n_clusters` number of random points
     n_samples = tf.shape(samples)[0]
-    random_indices = tf.random_shuffle(tf.range(0, n_samples))
+    random_indices = tf.random.shuffle(tf.range(0, n_samples))
     begin = [0,]
     size = [n_clusters,]
     size[0]= n_clusters
@@ -39,7 +39,7 @@ def assign_to_nearest2(samples, centroids):
 
 def update_centroids(samples, nearest_indices, n_clusters):
     # Updates the centroid to be the mean of all samples associated with it.
-    nearest_indices = tf.to_int32(nearest_indices)
+    nearest_indices = tf.cast(nearest_indices,tf.int32)
     partitions = tf.dynamic_partition(samples, nearest_indices, n_clusters)
     new_centroids = tf.concat([tf.expand_dims(tf.reduce_mean(partition, 0), 0) for partition in partitions], 0)
     return new_centroids    
